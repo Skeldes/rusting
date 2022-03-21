@@ -16,7 +16,7 @@ fn main() {
     // println!("Value of x is : {}", x);
     
 
-    const THREE_HOUR_IN_SECONDS : u32 = 60 * 60 * 3; //Constante, toujours immutable, typer (u32) et par convention, en majuscule
+    const _THREE_HOUR_IN_SECONDS : u32 = 60 * 60 * 3; //Constante, toujours immutable, typer (u32) et par convention, en majuscule
 
     let x = x + 1;
 
@@ -29,15 +29,15 @@ fn main() {
     println!("Value of x : {}", x);
 
     //Scalar type
-    let inte : u32 = 128_453;
-    let flo : f32 = 356.85;
-    let bol : bool = true;
-    let cha : char = 'b';
+    let _inte : u32 = 128_453;
+    let _flo : f32 = 356.85;
+    let _bol : bool = true;
+    let _cha : char = 'b';
 
 
     //Compount types
 
-    let tup : (i32, i16) = (500,12);
+    let _tup : (i32, i16) = (500,12);
 
     let tab = [1,2,3,4,5,6,7];
 
