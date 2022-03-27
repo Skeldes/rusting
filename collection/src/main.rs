@@ -18,13 +18,37 @@ fn main() {
 
 
         let last = v[v.len()-1];
-        let v_immu = vec![1,2,3];
+        let _v_immu = vec![1,2,3];
 
         println!("The first element of v is : {}", last);
         v.push(24);
         add_ten(&mut v);
-        println!("The first element of v is : {:?}", v);
-        
+        println!("The first element of v is : {:?}", v); 
+    }
+
+    {//String part
+        let mut s = String::from("Bonsoir");
+        s.push('h');
+        s.pop();
+        let mut s2 = 5.to_string();
+        println!("s : {}", s);
+        println!("s2 : {}", s2);
+        let s3 = s;
+        let s3 = s3 + &s2;
+        println!("s3 : {}", s3);
+        //println!("s : {}", s); //s n'est plus valide car s3 à pris la propiété
+        s2 += " 37"; // la modification de s2 ne modifie pas s3
+        println!("s3 : {}", s3);
+
+        let s4 = String::from("tic");
+        let s5 = String::from("tac");
+        let s6 = String::from("toe");
+        let s7 = format!("{}-{}-{}",s4,s5,s6); //format don't take ownership of any parameters
+        println!("s7 : {}", s7);
+
+        for c in "नमस्ते".chars() {
+            println!("{}", c);
+        }
     }
 }
 
