@@ -86,6 +86,16 @@ fn main() {
         let l = [2,5,4,3,8,4,3,6,5,2,8,1,7];
         let lsorted:Vec<u32> = sorte(&Vec::from(l));
         println!("mediane : {}", lsorted[((lsorted.len()/2)+1)]);
+        let mut map: HashMap<u32,u32> = HashMap::new();
+        for el in &lsorted{
+            let element = map.entry(*el).or_insert(0);
+            *element += 1;
+        }
+        let mut max: (u32,u32) = (0,0); //u32 min value is 0
+        for (k, v) in &map {
+            if max.1 < *v {max = (*k,*v)} 
+        }
+        println!("The value most present in l is {}", max.0);
     }
 }
 
