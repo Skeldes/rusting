@@ -2,6 +2,25 @@ use rand::Rng;
 use std::io;
 use std::cmp::Ordering;
 
+
+struct Guess {
+    value: i32,
+}
+
+impl Guess {
+    pub fn new(value: i32) -> Guess {
+        if value > 100 || value < 1 {
+            panic!("Guess value must be between 1 and 100, got : {}", value)
+        }
+
+        Guess { value}
+    }
+
+    pub fn value(&self) -> i32 {
+        self.value
+    }
+}
+
 fn main() {
 
     println!("Bienvenue dans le guessing game !");
@@ -19,12 +38,12 @@ fn main() {
 
         println!("vous avez tapez : {}", guess);
 
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
+        let guess: Guess = match guess.trim().parse() {
+            Ok(num) => Guess::new(num),
             Err(_) => continue,
         };
 
-        match guess.cmp(&rnd_num){
+        match guess.value().cmp(&rnd_num){
             Ordering::Less => println!("Trop petit"),
             Ordering::Greater => println!("Trop grand !"),
             Ordering::Equal => {
