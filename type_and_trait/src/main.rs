@@ -1,3 +1,7 @@
+
+
+use aggregator::{Summary, Tweet};
+
 struct Point<T> {
     x: T,
     y: T,
