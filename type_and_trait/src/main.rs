@@ -47,10 +47,10 @@ impl Point<f32> {
 //     char_max
 // }
 
-fn largest<T>(list: &[T]) -> T {
+fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
     let mut largest = list[0];
     for &elem in list {
-        if elem > largest { largest = elem}
+       if elem > largest { largest = elem}
     }
     largest
 }
@@ -60,12 +60,12 @@ fn main() {
 
     let result = largest(&number_list);
 
-    println!("Largest number of the list : {}", result);
+   println!("Largest number of the list : {}", result);
 
 
     let char_list = vec!['a', 'x','z','s','h','e','f'];
-    let result = largest(&char_list);
-    println!("Largest char in list  : {}", result);
+    //let result = largest(&char_list);
+    //println!("Largest char in list  : {}", result);
 
 
     let origine = Point{x:0, y:0};
@@ -74,5 +74,16 @@ fn main() {
     let pos_work = Point2{x:5, y:2.5};
 
     println!("p.x : {}", origine.x());
-    println!("distance from origine of p2 : {}", pos_float.distance_from_origin())
+    println!("distance from origine of p2 : {}", pos_float.distance_from_origin());
+
+    let tweet = Tweet {
+        username: String::from("Skeldes"),
+        content: String::from(
+            "My first tweet with rust !"
+        ),
+        reply: false,
+        retweet: false,
+    };
+
+    println!("1 new tweet : {}", tweet.summarize());
 }
